@@ -1,0 +1,28 @@
+@import '../../less/lib/long-shadow';
+@import '../../less/colors';
+
+
+.rc-Section {
+  margin: 40px auto;
+
+  .-section-title {
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 20px;
+    #long-shadow.inline(darken(@color-light-bg, 5%), 45, 10);
+
+    &:before {
+      content: "- ";
+    }
+
+    &:after {
+      content: " -";
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 32px;
+    }
+  }
+
+}

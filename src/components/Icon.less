@@ -1,0 +1,17 @@
+@import '../less/colors';
+
+.rc-Icon {
+  display: inline-block;
+  padding: 10px;
+
+  .-actionable {
+    position: relative;
+    top: 0;
+    color: inherit;
+    &:hover {
+      top: -5px;
+      color: @color-primary;
+    }
+    transition: all 0.3s ease;
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "profile": {
+    "firstName": "Jacob",
+    "lastName": "Lee",
+    "title": "Software Developer",
+    "description": "",
+    "email": {
+      "username": "jacobri.racoon",
+      "domain": "gmail.com"
+    }
+  },
+  "education": [
+    {
+      "title": "Rhein-waal University",
+      "description": "Bachelor of Mathematics and Computer Science",
+      "date": "2011 — 2015",
+      "image": "public/img/rw.png"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Contractor @ Sparkstreet Ventures",
+      "description": "Full-Stack Developer",
+      "date": "June 2019 — Present",
+      "image": "public/img/sparkstreet.png"
+    },
+    {
+      "title": "Contractor @ Premium Technology",
+      "description": "Full-Stack Developer (Python, JavaScript)",
+      "date": "Dec 2016 — Nov 2018",
+      "image": "public/img/pt.png"
+    },
+    {
+      "title": "Freelancer @ Upwork",
+      "description": "Python Data Engineer",
+      "date": "Feb 2016 — Dec 2016",
+      "image": "public/img/upwork.svg"
+    },
+    {
+      "title": "Freelancer @ Freelancer",
+      "description": "Python Web Developer",
+      "date": "Feb 2015 — Dec 2015",
+      "image": "public/img/freelancer.svg"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Internal Product Management Portal",
+      "description": "Website: private",
+      "date": "Nov 2019 — Mar 2020",
+      "image": "public/img/allendale.png",
+      "details": [
+        {
+          "title": "FrontEnd",
+          "description": "Angular/RxJS, agGrid"
+        },
+        {
+          "title": "BackEnd",
+          "description": "Django/DRF, JWT authentication, Channeles, ASGI"
+        }
+      ]
+    },
+    {
+      "title": "SaaS for Restaurants",
+      "description": "Website: https://www.agnoris.com/",
+      "date": "July 2019 — Dec 2019",
+      "image": "public/img/agnoris.svg",
+      "details": [
+        {
+          "title": "FrontEnd",
+          "description": "React.js/Redux, d3.js, axios, GraphQL"
+        },
+        {
+          "title": "BackEnd (other's)",
+          "description": "Django/DRF, Neo4j, JWT authentication"
+        }
+      ]
+    },
+    {
+      "title": "Questionnaire/Report Site",
+      "description": "Website: https://service.comisec.fr",
+      "date": "Nov 2018 - Feb 2019",
+      "image": "public/img/comisec.png",
+      "details": [
+        {
+          "title": "MVC",
+          "description": "Django, -models/forms, ReportLab, PostgreSQL, CSRF protection, AWS"
+        }
+      ]
+    },
+    {
+      "title": "Sports Betting Website",
+      "description": "Website: https://punterspicks.com/",
+      "date": "Oct 2017 — Aug 2018",
+      "image": "public/img/punterspicks.png",
+      "details": [
+        {
+          "title": "FrontEnd",
+          "description": "Angular/NgRx"
+        },
+        {
+          "title": "BackEnd",
+          "description": "Django/DRF, requests, 3rd-party APIs, AWS"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "key": "languages",
+      "values": [
+        "JavaScript",
+        "Python",
+        "Java",
+        "PHP",
+        "C",
+        "C++",
+        "SQL",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "key": "front-end",
+      "values": [
+        "React",
+        "Gatsby.js",
+        "Angular",
+        "Bootstrap 3,4"
+      ]
+    },
+    {
+      "key": "back-end",
+      "values": [
+        "Django",
+        "Node.js/Express"
+      ]
+    }
+  ],
+  "socialProfiles": [
+    {
+      "name": "GitHub",
+      "icon": "fab fa-github",
+      "url": "https://github.com/lijac"
+    },
+    {
+      "name": "Twitter",
+      "icon": "fab fa-twitter",
+      "url": "https://twitter.com/JacobRacoon"
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+@import '../../../less/colors';
+@import '../../../less/lib/long-shadow';
+
+.rc-Timeline {
+  position: relative;
+
+  // Vertical line
+  &:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 6px;
+    background-color: @color-dark-primary;
+    top: 0;
+    left: 50%;
+    transform: translateX(-3px);
+    border-radius: 3px;
+  }
+
+  .-timeline-item {
+    display: grid;
+    position: relative;
+    grid-template-columns: 50% 0 50%;
+    grid-template-rows: 35px auto 35px auto;
+    padding-bottom: 20px;
+
+    // Timeline marker
+    &:after {
+      content: "";
+      grid-column-start: 2;
+      grid-row-start: 2;
+      justify-self: center;
+      align-self: center;
+      width: 10px;
+      height: 10px;
+      background-color: @color-light-primary;
+      border: 3px solid @color-dark-primary;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .-image {
+      grid-row-start: 1;
+      grid-row-end: span 3;
+      align-self: center;
+      width: auto;
+      height: 100px;
+      #long-shadow.svg(darken(@color-light-bg, 5%), 45, 4);
+    }
+
+    .-title, .-content {
+      position: relative;
+      word-wrap: break-word;
+      text-align: center;
+    }
+
+    .-title {
+      grid-row-start: 2;
+      align-self: center;
+      color: @color-text-light;
+      background-color: @color-dark-primary;
+      padding: 10px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+      .-experience-title {
+        font-size: 1.3em;
+        font-weight: 900;
+      }
+
+      .-experience-description {
+        font-size: 1.1em;
+        font-weight: 300;
+      }
+
+      // Arrows
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+      }
+    }
+
+    .-content {
+      grid-row-start: 3;
+      grid-row-end: span 2;
+      background-color: @color-light-primary;
+      padding: 10px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      box-shadow: 0 3px 0 darken(@color-light-bg, 5%);
+      font-weight: 300;
+    }
+
+    // Odd timeline items
+    &:nth-child(odd) {
+      .-image {
+        grid-column-start: 1;
+        justify-self: end;
+        margin-right: 30px;
+      }
+
+      .-title, .-content {
+        grid-column-start: 3;
+        margin-left: 30px;
+      }
+
+      // Arrows
+      .-title:after {
+        right: 100%;
+        border-right: 8px solid @color-dark-primary;
+      }
+    }
+
+    // Even timeline items
+    &:nth-child(even) {
+      .-image {
+        grid-column-start: 3;
+        justify-self: start;
+        margin-left: 30px;
+      }
+
+      .-title, .-content {
+        grid-column-start: 1;
+        margin-right: 30px;
+      }
+
+      // Arrows
+      .-title:after {
+        left: 100%;
+        border-left: 8px solid @color-dark-primary;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    &:after {
+      left: 35px;
+    }
+
+    .-timeline-item {
+      grid-template-columns: 70px 0 auto;
+
+      // Timeline marker
+      &:after {
+        display: none;
+      }
+
+      .-image {
+        width: 70px;
+        height: 70px;
+      }
+
+      &:nth-child(odd), &:nth-child(even) {
+        .-image {
+          grid-column-start: 1;
+          justify-self: end;
+          margin-right: 0;
+          z-index: 1;
+          padding: 15px 0;
+          background-color: @color-light-bg;
+          filter: unset;
+        }
+
+        .-title, .-content {
+          grid-column-start: 3;
+          margin-left: 20px;
+          margin-right: 0;
+        }
+
+        .-title {
+          .-experience-title {
+            font-size: 1em;
+            font-weight: 900;
+          }
+
+          .-experience-description {
+            font-size: 1em;
+            font-weight: 300;
+          }
+        }
+
+        // Arrows
+        .-title:after {
+          right: 100%;
+          left: unset;
+          border-left: none;
+          border-right: 8px solid @color-dark-primary;
+        }
+      }
+    }
+  }
+}

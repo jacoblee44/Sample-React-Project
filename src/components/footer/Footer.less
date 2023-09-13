@@ -1,0 +1,26 @@
+@import '../../less/colors';
+
+.rc-Footer {
+  position: relative;
+  top: 100vh;
+  background-color: #332d33;
+  color: @color-text-light;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-weight: 300;
+
+  &:before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(-45deg, #332d33 16px, red 16px, blue 16px, transparent 0), linear-gradient(45deg, #332d33 16px, transparent 0);
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 22px 32px;
+    display: block;
+    height: 32px;
+    width: 100%;
+    bottom: 100%;
+    z-index: 1;
+  }
+}

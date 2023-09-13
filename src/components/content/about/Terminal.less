@@ -1,0 +1,99 @@
+@import '../../../less/colors';
+
+.rc-Terminal {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+
+  .-title-bar {
+    position: relative;
+    text-align: center;
+    background-color: @color-light-primary;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    flex-grow: 0;
+    height: 25px;
+    line-height: 25px;
+    font-weight: 400;
+
+    .-title-text {
+      color: #aaa;
+      user-select: none;
+    }
+
+    .-title-buttons {
+      display: flex;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      align-items: center;
+
+      .-title-button {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        margin-left: 8px;
+
+        &.x-close {
+          background-color: #ff7171;
+        }
+
+        &.x-minimize {
+          background-color: #f3ba3a;
+        }
+
+        &.x-maximize {
+          background-color: #2fda2f;
+        }
+      }
+    }
+  }
+
+  .-window {
+    color: @color-text-light;
+    font-family: 'Fira Mono', monospace;
+    background-color: @color-dark-primary;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    flex-grow: 1;
+    overflow: hidden;
+    font-size: 16px;
+    padding: 16px;
+    line-height: 24px;
+
+    .-line:before {
+      content: "❯ ";
+      color: @color-secondary;
+    }
+
+    .-command {
+      color: @color-primary;
+
+      &:after {
+        content: " ";
+      }
+    }
+
+    .-words {
+      .-word {
+        display: inline-block;
+        white-space: pre;
+      }
+    }
+  }
+
+  .-cursor {
+    user-select: none;
+    animation-name: blink-anim;
+    animation-duration: 1s;
+    animation-timing-function: step-end;
+    animation-iteration-count: infinite;
+
+    @keyframes blink-anim {
+      0%    {opacity: 0}
+      50%   {opacity: 1}
+      100%  {opacity: 0}
+    }
+  }
+}

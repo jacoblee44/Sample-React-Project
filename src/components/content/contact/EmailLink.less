@@ -1,0 +1,24 @@
+@import '../../../less/colors';
+@import '../../../less/lib/long-shadow';
+
+.rc-EmailLink {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  color: @color-dark-primary;
+  font-weight: 900;
+  font-size: 28px;
+  text-decoration: none;
+  padding: 20px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: @color-primary;
+    top: -5px;
+    #long-shadow.inline(darken(@color-light-bg, 5%), 45, 10);
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
+}

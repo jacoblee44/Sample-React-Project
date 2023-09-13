@@ -1,0 +1,73 @@
+/**
+* Less Long Shadow v2.1.0
+* Long shadow generator mixins for inline, block and SVG elements.
+*
+* Source: https://github.com/zensimilia/less-long-shadow
+* Author: Di M Dub
+* License: MIT
+*
+* #long-shadow.inline(@color, @angle, @size);
+* #long-shadow.block(@color, @angle, @size, @prefix);
+* #long-shadow.svg(@color, @angle, @size, @prefix);
+*/
+
+#long-shadow {
+  .inline(@color: #CCCCCC, @angle: 45, @size: 10, @flag: 1, @temp: "") when (@size > 0) {
+    @angle360: @angle * (pi() / 180);
+    @x: round(@flag * cos(@angle360));
+    @y: round(@flag * sin(@angle360));
+    @shadow: ~"@{x}px @{y}px 0px @{color}";
+    @close: ~"@{shadow}, @{temp}";
+    @alltogether: ~"@{close} 0px 0px 0px @{color}";
+
+    .loop(@string, @index) when (@index < 1) {
+      text-shadow: @string;
+    }
+
+    .loop(@alltogether, @size - 1);
+    .inline(@color, @angle, @size - 1,@flag + 1, @close);
+  }
+
+  .block(@color: #CCCCCC, @angle: 45, @size: 10, @prefix: 1, @flag: 1, @temp: "") when (@size > 0) {
+    @angle360: @angle * (pi() / 180);
+    @x: round(@flag * cos(@angle360));
+    @y: round(@flag * sin(@angle360));
+    @shadow: ~"@{x}px @{y}px 0px @{color}";
+    @close: ~"@{shadow}, @{temp}";
+    @alltogether: ~"@{close} 0px 0px 0px @{color}";
+
+    .loop(@string, @index) when (@index < 1) {
+      box-shadow: @string;
+    }
+
+    .loopPrefix(@string, @index) when (@index < 1) and (@prefix > 0) {
+      -webkit-box-shadow: @string;
+      -moz-box-shadow: @string;
+    }
+
+    .loop(@alltogether, @size - 1);
+    .loopPrefix(@alltogether, @size - 1);
+    .block(@color, @angle, @size - 1, @prefix, @flag + 1, @close);
+  }
+
+  .svg(@color: #CCCCCC, @angle: 45, @size: 10, @prefix: 1, @flag: 1, @temp: "") when (@size > 0) {
+    @angle360: @angle * (pi() / 180);
+    @x: round(@flag * cos(@angle360));
+    @y: round(@flag * sin(@angle360));
+    @shadow: ~"@{x}px @{y}px 0px @{color}";
+    @close: ~"@{shadow}) drop-shadow(@{temp}";
+    @alltogether: ~"drop-shadow(@{close} 0px 0px 0px @{color})";
+
+    .loop(@string, @index) when (@index < 1) {
+      filter: @string;
+    }
+
+    .loopPrefix(@string, @index) when (@index < 1) and (@prefix > 0) {
+      -webkit-filter: @string;
+    }
+
+    .loop(@alltogether, @size - 1);
+    .loopPrefix(@alltogether, @size - 1);
+    .svg(@color, @angle, @size - 1, @prefix, @flag + 1, @close);
+  }
+}
